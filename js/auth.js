@@ -1,31 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     const authContainer = document.getElementById('auth-container');
+    
+    // Obtenemos los datos directamente de localStorage
+    const userString = localStorage.getItem('discord_user');
 
-    // Función para obtener el valor de una cookie por nombre
-    const getCookie = (name) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    };
-
-    const userDataCookie = getCookie('user_data');
-
-    if (userDataCookie) {
-        // La cookie existe, decodificamos el JSON
-        const user = JSON.parse(decodeURIComponent(userDataCookie));
-        
-        authContainer.innerHTML = `
-            <div class="user-profile">
-                <img src="${user.avatar_url}" alt="Avatar" class="user-avatar">
-                <span class="user-name">${user.username}</span>
-            </div>
-        `;
+    if (userString) {
+        try {
+            const user = JSON.parse(userString);
+            
+            // Inyectamos el perfil del usuario
+            authContainer.innerHTML = `
+                <div class="user-profile">
+                    <img src="${user.avatar_url}" alt="Avatar" class="user-avatar">
+                    <span class="user-name">${user.username}</span>
+                    <button onclick="logout()" class="btn-logout">Cerrar sesión</button>
+                </div>
+            `;
+        } catch (e) {
+            console.error("Error al parsear el usuario:", e);
+            renderLoginButton();
+        }
     } else {
-        // No hay cookie, mostrar login
-        authContainer.innerHTML = `
-            <button class="btn-discord" onclick="window.location.href='/api/login'">
-                <i class="fa-brands fa-discord"></i> Login con Discord
-            </button>
-        `;
+        renderLoginButton();
     }
 });
+
+function renderLoginButton() {
+    const authContainer = document.getElementById('auth-container');
+    authContainer.innerHTML = `
+        <button class="btn-discord" onclick="window.location.href='/api/login'">
+            <i class="fa-brands fa-discord"></i> Login con Discord
+        </button>
+    `;
+}
+
+function logout() {
+    localStorage.removeItem('discord_user');
+    window.location.reload(); // Recarga la página y mostrará el botón de login
+}
