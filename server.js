@@ -17,39 +17,11 @@ app.get('/api/login', (req, res) => {
     res.redirect(authUrl);
 });
 
-app.get('/', async (req, res, next) => {
-    const { code } = req.query;
-    if (!code) return next();
-
-    try {
-        const tokenResponse = await axios.post('https://discord.com/api/oauth2/token', new URLSearchParams({
-            client_id: CLIENT_ID,
-            client_secret: CLIENT_SECRET,
-            grant_type: 'authorization_code',
-            code: code,
-            redirect_uri: REDIRECT_URI,
-        }));
-
-        const { access_token } = tokenResponse.data;
-        const userResponse = await axios.get('https://discord.com/api/users/@me', {
-            headers: { Authorization: `Bearer ${access_token}` }
-        });
-
-        const user = userResponse.data;
-        const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-    const userData = JSON.stringify({ username: user.username, avatar_url: avatarUrl });
-
-        // Redirección al Dashboard tras éxito
-       res.send(`
-    <script>
-        localStorage.setItem('discord_user', '${userData}');
-        window.location.href = '/dashboard';
-    </script>
-`);
-    } catch (err) {
-        console.error(err);
-        res.send('Error en la autenticación.');
-    }
+app.get('/api/login', (req, res) => {
+    console.log("Iniciando proceso de login...");
+    const authUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+guilds`;
+    
+    console.log("Redirigiendo a:", authUrl);
+    res.redirect(authUrl); // Aquí debería saltar a Discord inmediatamente
 });
-
 app.listen(3000, () => console.log('Servidor corriendo en https://blutter.xyz'));
