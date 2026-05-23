@@ -36,5 +36,5 @@ function renderLoginButton() {
 
 function logout() {
     localStorage.removeItem('discord_user');
-    window.location.reload(); // Recarga la página y mostrará el botón de login
+    window.location.reload(); 
 }

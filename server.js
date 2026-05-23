@@ -37,15 +37,15 @@ app.get('/', async (req, res, next) => {
 
         const user = userResponse.data;
         const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-        const userData = JSON.stringify({ username: user.username, avatar_url: avatarUrl });
+    const userData = JSON.stringify({ username: user.username, avatar_url: avatarUrl });
 
         // Redirección al Dashboard tras éxito
-        res.send(`
-            <script>
-                localStorage.setItem('discord_user', '${userData}');
-                window.location.href = '/dashboard';
-            </script>
-        `);
+       res.send(`
+    <script>
+        localStorage.setItem('discord_user', '${userData}');
+        window.location.href = '/dashboard';
+    </script>
+`);
     } catch (err) {
         console.error(err);
         res.send('Error en la autenticación.');
