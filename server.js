@@ -8,19 +8,18 @@ app.use(express.static('./'));
 
 const CLIENT_ID = '1507533598700605570';
 const CLIENT_SECRET = 'OC0bTdTmP1-_CMSim1Htv3MdZhRWa5QY';
-const REDIRECT_URI = 'http://localhost:3000/'; // Usamos la raíz
+// Cambiamos a tu dominio real
+const REDIRECT_URI = 'https://blutter.xyz/'; 
 
-// Ruta de Login
 app.get('/api/login', (req, res) => {
-    const authUrl = `https://discord.com/oauth2/authorize?client_id=1507533598700605570&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000&scope=identify+guilds`;
+    // La URL de autorización ahora usa tu dominio
+    const authUrl = `https://discord.com/oauth2/authorize?client_id=1507533598700605570&response_type=code&redirect_uri=https%3A%2F%2Fblutter.xyz%2F&scope=identify+guilds`;
     res.redirect(authUrl);
 });
 
-// Ruta única para procesar el callback
 app.get('/', async (req, res, next) => {
     const { code } = req.query;
-
-    if (!code) return next(); // Si no hay código, sirve el index.html normalmente
+    if (!code) return next();
 
     try {
         const tokenResponse = await axios.post('https://discord.com/api/oauth2/token', new URLSearchParams({
@@ -40,11 +39,11 @@ app.get('/', async (req, res, next) => {
         const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         const userData = JSON.stringify({ username: user.username, avatar_url: avatarUrl });
 
-        // MÉTODO INFALIBLE: Inyectar en localStorage mediante HTML
+        // Redirección al Dashboard tras éxito
         res.send(`
             <script>
                 localStorage.setItem('discord_user', '${userData}');
-                window.location.href = '/';
+                window.location.href = '/dashboard';
             </script>
         `);
     } catch (err) {
@@ -53,4 +52,4 @@ app.get('/', async (req, res, next) => {
     }
 });
 
-app.listen(3000, () => console.log('Servidor corriendo en http://localhost:3000'));
+app.listen(3000, () => console.log('Servidor corriendo en https://blutter.xyz'));
