@@ -13,13 +13,10 @@ const BASE_URL = IS_PRODUCTION ? 'https://blutter.xyz' : 'http://localhost:3000'
 const REDIRECT_URI = `${BASE_URL}/`;
 
 app.get('/api/login', (req, res) => {
-    // 1. Definimos la URL de Discord con tu ID y tu Redirect URI
-    const authUrl = `https://discord.com/oauth2/authorize?client_id=1507533598700605570&response_type=code&redirect_uri=https%3A%2F%2Fblutter.xyz%2F&scope=identify+guilds`;
-    
-    // 2. FORZAMOS la redirección al navegador del usuario
+    // Usamos la variable que ya es inteligente (BASE_URL + /)
+    const authUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+guilds`;
     res.redirect(authUrl);
 });
-
 app.get('/', async (req, res, next) => {
     const { code } = req.query;
     if (!code) return next();
