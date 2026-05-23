@@ -1,25 +1,25 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const app = express();
-
-app.use(express.static('./'));
 
 const CLIENT_ID = '1507533598700605570';
 const CLIENT_SECRET = 'OC0bTdTmP1-_CMSim1Htv3MdZhRWa5QY';
 
-// Detecta si es localhost o blutter.xyz
+// Detección automática de entorno
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const BASE_URL = IS_PRODUCTION ? 'https://blutter.xyz' : 'http://localhost:3000';
 const REDIRECT_URI = `${BASE_URL}/`;
 
+// 1. Rutas de la API (DEBEN IR ANTES DE LOS ARCHIVOS ESTÁTICOS)
 app.get('/api/login', (req, res) => {
-    // Usamos la variable que ya es inteligente (BASE_URL + /)
     const authUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+guilds`;
     res.redirect(authUrl);
 });
+
 app.get('/', async (req, res, next) => {
     const { code } = req.query;
-    if (!code) return next();
+    if (!code) return next(); // Si no hay código, sigue a los archivos estáticos
 
     try {
         const tokenResponse = await axios.post('https://discord.com/api/oauth2/token', new URLSearchParams({
@@ -42,12 +42,21 @@ app.get('/', async (req, res, next) => {
         res.send(`
             <script>
                 localStorage.setItem('discord_user', '${userData}');
-                window.location.href = '/dashboard';
+                window.location.href = '/dashboard.html';
             </script>
         `);
     } catch (err) {
-        res.send('Error en la autenticación.');
+        res.status(500).send('Error en la autenticación.');
     }
 });
 
-app.listen(3000, () => console.log(`Servidor corriendo en ${BASE_URL}`));
+// 2. Archivos estáticos
+app.use(express.static('./'));
+
+// 3. Manejo de error 404 (Siempre al final)
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, '404.html'));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Servidor corriendo en ${BASE_URL}`));
