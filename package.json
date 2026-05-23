@@ -1,27 +1,17 @@
 {
   "name": "flutter-web",
   "version": "1.0.0",
-  "description": "",
+  "description": "Landing page de Blutter con autenticación",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nexateamx/landing.git"
+  "engines": {
+    "node": ">=18.0.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/nexateamx/landing/issues"
-  },
-  "homepage": "https://github.com/nexateamx/landing#readme",
   "dependencies": {
-    "axios": "^1.16.1",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
   }
 }
