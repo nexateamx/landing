@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderLoginButton() {
     const authContainer = document.getElementById('auth-container');
     authContainer.innerHTML = `
-        <button class="btn-discord" onclick="window.location.href='/api/login'">
-            <i class="fa-brands fa-discord"></i> Login con Discord
-        </button>
-    `;
+        <a href="/api/login" class="btn-discord">
+    <i class="fa-brands fa-discord"></i> Login con Discord
+</a>
+    `; 
 }
 
 function logout() {
