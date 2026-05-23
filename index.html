@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blutter - Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+
+    <header class="topbar">
+        <div class="topbar-container">
+            <a href="#" class="brand">
+                <span class="brand-dot"></span>Blutter
+            </a>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <div class="nav-categories">
+                    <a href="#moderacion" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Moderación</a>
+                    <a href="#utilidad" class="nav-link"><i class="fa-solid fa-screwdriver-wrench"></i> Utilidad</a>
+                    <a href="#diversion" class="nav-link"><i class="fa-solid fa-dice"></i> Diversión</a>
+                </div>
+                
+                <span class="divider">|</span>
+                
+               <div class="nav-auth" id="auth-container">
+    </div>
+            </nav>
+        </div>
+    </header>
+
+ <main class="hero">
+        <div class="hero-content">
+            <span class="badge">PROYECTO MULTIFUNCIONAL</span>
+            <h1>Lleva tu servidor al siguiente nivel con <span class="highlight">Blutter</span></h1>
+            <p>Un bot híbrido moderno con soporte multilenguaje, administración avanzada, comandos interactivos y una configuración intuitiva conectada a Firebase.</p>
+            <div class="hero-actions">
+                <button class="btn-primary"><i class="fa-solid fa-plus"></i> Añadir a Discord</button>
+                <a href="#commands-section" class="btn-secondary-link">Ver Comandos</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fa-solid fa-server stat-icon"></i>
+                <h3 class="stat-number">+150</h3>
+                <p class="stat-desc">Servidores</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-users stat-icon"></i>
+                <h3 class="stat-number">+85K</h3>
+                <p class="stat-desc">Usuarios Hoy</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-bolt stat-icon"></i>
+                <h3 class="stat-number">24/7</h3>
+                <p class="stat-desc">Tiempo Activo</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="commands-section" class="commands-section">
+        <div class="section-header">
+            <h2>Lista de <span class="highlight">Comandos</span></h2>
+            <p>Explora las funciones disponibles integradas con prefijo y comandos de barra (/).</p>
+        </div>
+
+        <div class="commands-container">
+            <div id="moderacion" class="category-box">
+                <div class="category-title">
+                    <i class="fa-solid fa-shield-halved"></i> <h3>Moderación</h3>
+                </div>
+                <div class="command-list">
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/ban</span>
+                            <p class="command-desc">Banea a un miembro conflictivo del servidor guardando el registro.</p>
+                        </div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/mute user | remove</span>
+                            <p class="command-desc">Silencia (Timeout) temporalmente a un usuario o remueve su castigo.</p>
+                        </div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/clear</span>
+                            <p class="command-desc">Elimina de forma masiva hasta 100 mensajes recientes de un canal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="utilidad" class="category-box">
+                <div class="category-title">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> <h3>Utilidad</h3>
+                </div>
+                <div class="command-list">
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/ping</span>
+                            <p class="command-desc">Muestra la latencia del bot, el estado de la API, RAM y el Uptime real.</p>
+                        </div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/serverinfo</span>
+                            <p class="command-desc">Despliega un embed detallado con las estadísticas globales del servidor.</p>
+                        </div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/avatar</span>
+                            <p class="command-desc">Obtén el avatar de cualquier miembro en su máxima resolución.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="diversion" class="category-box">
+                <div class="category-title">
+                    <i class="fa-solid fa-dice"></i> <h3>Diversión</h3>
+                </div>
+                <div class="command-list">
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/8ball</span>
+                            <p class="command-desc">Hazle una pregunta al bot y la bola mágica te responderá con retraso animado.</p>
+                        </div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/meme</span>
+                            <p class="command-desc">Busca automáticamente memes virales en Reddit según el idioma del servidor.</p>
+                        </div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-info">
+                            <span class="command-name">/luck</span>
+                            <p class="command-desc">Prueba tu nivel de fortuna diario con un porcentaje y descripción única.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <section class="bio-section">
+        <div class="bio-container">
+            <h2>¿Qué es <span class="highlight">Blutter</span>?</h2>
+            <p>Blutter no es solo otro bot; es un asistente diseñado para centralizar la gestión de comunidades en Discord. Combinando el poder de Firebase para datos en tiempo real y una arquitectura moderna, Blutter optimiza desde la moderación automática hasta la economía interna de tu servidor.</p>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <div class="section-header">
+            <h2>Mira cómo <span class="highlight">funciona</span></h2>
+            <p>El bot responde de manera elegante con embeds personalizados y contenido animado.</p>
+        </div>
+
+        <div class="demo-grid">
+            <div class="demo-block">
+                <span class="demo-tag">ENTRADA</span>
+                <div class="code-box">
+                    <p class="cmd-text">/8ball ¿Blutter es el mejor bot?</p>
+                </div>
+            </div>
+
+            <div class="demo-block">
+                <span class="demo-tag">RESPUESTA</span>
+                <div class="embed-preview">
+                    <div class="embed-border"></div>
+                    <div class="embed-content">
+                        <h4>🔮 La Bola 8 Mágica</h4>
+                        <p><strong>❓ Pregunta:</strong> ¿Blutter es el mejor bot?</p>
+                        <p><strong>✨ Respuesta:</strong> 🟢 Totalmente seguro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="demo-grid">
+    <div class="demo-block">
+        <span class="demo-tag">ENTRADA</span>
+        <div class="code-box">
+            <p class="cmd-text">/serverinfo</p>
+        </div>
+    </div>
+
+    <div class="demo-block">
+        <span class="demo-tag">RESPUESTA</span>
+        <div class="embed-preview">
+            <div class="embed-border" style="background-color: #f39c12;"></div>
+            <div class="embed-content">
+                <h4>📊 Información de Blutter Hub</h4>
+                <p>👥 <strong>Miembros:</strong> 1,240</p>
+                <p>📂 <strong>Canales:</strong> 45</p>
+                <p>👑 <strong>Dueño:</strong> Owner#0001</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <section class="features-section">
+    <div class="section-header">
+        <h2>¿Por qué elegir <span class="highlight">Blutter</span>?</h2>
+    </div>
+    <div class="features-grid">
+        <div class="feature-item">
+            <i class="fa-solid fa-code-branch"></i>
+            <h3>Arquitectura Híbrida</h3>
+            <p>Soporte nativo para Slash Commands y Prefijos tradicionales, adaptándose al estilo de cada usuario.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-database"></i>
+            <h3>Firebase Integrado</h3>
+            <p>Datos persistentes y ultra rápidos. Configura tu servidor y olvídate de perder ajustes.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-earth-americas"></i>
+            <h3>Multilenguaje</h3>
+            <p>El bot detecta el idioma de tu servidor y se ajusta automáticamente para que todos entiendan.</p>
+        </div>
+    </div>
+</section>
+
+ <footer class="footer-pro">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a href="#" class="brand"><span class="brand-dot"></span>Blutter</a>
+            <p>El bot híbrido de nueva generación para Discord. Potenciado por Firebase y diseñado para comunidades exigentes.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-discord"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h4>Producto</h4>
+            <ul>
+                <li><a href="/Commands/Moderation">Moderación</a></li>
+                <li><a href="/Commands/Utility">Utilidad</a></li>
+                <li><a href="/Commands/Fun">Diversión</a></li>
+                <li><a href="/Bot/Status">Status del Bot</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="/legal/Privacy-Policy/">Privacidad</a></li>
+                <li><a href="/legal/Terms-of-Service/">Términos de Servicio</a></li>
+                <li><a href="/legal/Licence/">Licencia</a></li>
+                <li><a href="/Contact/">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Blutter. Desarrollado con dedicación.</p>
+    </div>
+</footer>
+
+
+    <script src="/js/script.js"></script>
+     <script type="module" src="/js/auth.js"></script>
+</body>
+</html>

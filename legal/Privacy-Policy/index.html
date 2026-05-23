@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Política de Privacidad - Blutter</title>
+    <link rel="stylesheet" href="/css/style.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme" style="padding-top: 100px;">
+
+        <header class="topbar">
+        <div class="topbar-container">
+            <a href="#" class="brand">
+                <span class="brand-dot"></span>Blutter
+            </a>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <div class="nav-categories">
+                    <a href="/Features/mMderation" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Moderación</a>
+                    <a href="/Plan/" class="nav-link"><i class="fa-solid fa-screwdriver-wrench"></i> Plan</a>
+                    <a href="/Commands/" class="nav-link"><i class="fa-solid fa-dice"></i> Comandos</a>
+                </div>
+                
+                <span class="divider">|</span>
+                
+                <div class="nav-auth">
+                    <button class="btn-discord" id="login-btn">
+                        <i class="fa-brands fa-discord"></i> Login con Discord
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<main class="legal-container">
+    <h1>Política de Privacidad de <span class="highlight">Blutter</span></h1>
+    <p>Última actualización: 22 de mayo de 2026</p>
+
+    <h2>1. Introducción</h2>
+    <p>La privacidad de nuestros usuarios es fundamental. Esta política explica cómo Blutter recopila, almacena y utiliza la información cuando interactúas con nuestro bot en la plataforma Discord.</p>
+
+    <h2>2. Información que recopilamos</h2>
+    <p>Blutter únicamente almacena la información estrictamente necesaria para el correcto funcionamiento de sus comandos. Los datos recopilados incluyen:</p>
+    <ul>
+        <li><strong>Información técnica de Discord:</strong> IDs únicos de usuario, ID del servidor (Guild ID) y configuración de idioma.</li>
+        <li><strong>Configuraciones del Servidor:</strong> Roles de moderación configurados, canales de registro (logs), prefijos personalizados y niveles de economía.</li>
+        <li><strong>Actividad de Comandos:</strong> Registro de uso de comandos para fines de estadísticas y prevención de abuso.</li>
+    </ul>
+
+    <h2>3. Almacenamiento y Seguridad (Firebase)</h2>
+    <p>Toda la información es gestionada mediante <strong>Google Firebase (Firestore)</strong>. Implementamos medidas de seguridad para proteger tus datos:</p>
+    <ul>
+        <li>Los datos se almacenan de forma privada y no son accesibles por terceros.</li>
+        <li>Blutter no almacena mensajes, contraseñas, ni direcciones IP de los usuarios.</li>
+        <li>No realizamos minería de datos ni vendemos información personal.</li>
+    </ul>
+
+    <h2>4. Propósito del Uso de Datos</h2>
+    <p>Utilizamos la información recopilada exclusivamente para:</p>
+    <ul>
+        <li>Garantizar que el bot recuerde la configuración de tu servidor.</li>
+        <li>Procesar comandos de moderación, economía y utilidades de forma eficiente.</li>
+        <li>Detectar y prevenir el uso indebido o automatizado (spam) del bot.</li>
+    </ul>
+
+    <h2>5. Tus Derechos y Control</h2>
+    <p>Como propietario de un servidor o usuario, tienes el derecho de:</p>
+    <ul>
+        <li><strong>Acceder a tus datos:</strong> Puedes solicitarnos qué información tenemos sobre tu servidor.</li>
+        <li><strong>Eliminación de datos:</strong> Si deseas eliminar toda la configuración y datos de tu servidor, puedes usar el comando <code>/reset-data</code> o contactar directamente al desarrollador.</li>
+        <li><strong>Eliminación del Bot:</strong> Al expulsar a Blutter de tu servidor, todos los datos operativos asociados dejan de procesarse inmediatamente.</li>
+    </ul>
+
+    <h2>6. Cambios en esta Política</h2>
+    <p>Podemos actualizar esta política ocasionalmente. La fecha de "Última actualización" al inicio de esta página reflejará cualquier cambio significativo.</p>
+
+    <h2>7. Contacto</h2>
+    <p>Si tienes alguna duda sobre esta Política de Privacidad o necesitas soporte, puedes contactarnos a través de nuestro servidor de soporte o mediante mensaje directo en Discord.</p>
+
+    <a href="/" class="btn-secondary">← Volver al inicio</a>
+</main>
+
+    <script src="/js/script.js"></script>
+
+    <footer class="footer-pro">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a href="#" class="brand"><span class="brand-dot"></span>Blutter</a>
+            <p>El bot híbrido de nueva generación para Discord. Potenciado por Firebase y diseñado para comunidades exigentes.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-discord"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h4>Producto</h4>
+            <ul>
+                <li><a href="/Commands/Moderation">Moderación</a></li>
+                <li><a href="/Commands/Utility">Utilidad</a></li>
+                <li><a href="/Commands/Fun">Diversión</a></li>
+                <li><a href="/Bot/Status">Status del Bot</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="/legal/Privacy-Policy/">Privacidad</a></li>
+                <li><a href="/legal/Terms-of-Service/">Términos de Servicio</a></li>
+                <li><a href="/legal/Licence/">Licencia</a></li>
+                <li><a href="/Contact/">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Blutter. Desarrollado con dedicación.</p>
+    </div>
+</footer>
+
+</body>
+</html>
