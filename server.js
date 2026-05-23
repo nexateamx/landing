@@ -11,7 +11,6 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const BASE_URL = IS_PRODUCTION ? 'https://blutter.xyz' : 'http://localhost:3000';
 const REDIRECT_URI = `${BASE_URL}/`;
 
-// 1. Rutas de la API (DEBEN IR ANTES DE LOS ARCHIVOS ESTÁTICOS)
 app.get('/api/login', (req, res) => {
     const authUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+guilds`;
     res.redirect(authUrl);
