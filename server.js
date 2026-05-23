@@ -45,7 +45,7 @@ app.get('/', async (req, res, next) => {
         res.send(`
             <script>
                 localStorage.setItem('discord_user', '${userData}');
-                window.location.href = '/dashboard.html';
+                window.location.href = '/dashboard';
             </script>
         `);
     } catch (err) {
